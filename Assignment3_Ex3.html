@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 3</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Exercise 3</h1>
+    <p>Enter your full name below:</p>
+    <input type="text" id="names" />
+    <button onclick="addName()">Add</button>
+    <p>Names:</p>
+    <ol id="nameList"></ol>
+    <script>
+		const nameList = [];
+
+		function addName() {
+			const names = document.getElementById('names');
+			const nameListElement = document.getElementById('nameList');
+			const name = names.value.trim();
+			if (name) {
+				nameList.push(name);
+				nameList.sort();
+				nameListElement.innerHTML = nameList.map(name => `<li>${name}</li>`).join('');
+				names.value = '';
+			}
+		}
+    </script>
+</body>
+</html>
